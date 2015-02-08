@@ -30,7 +30,7 @@ import org.eclipse.hudson.api.model.IBaseBuildableProject;
 import org.hudsonci.maven.plugin.builder.MavenBuilder;
 import org.hudsonci.maven.plugin.builder.internal.MavenInstallationValidator;
 import org.jfrog.build.api.BuildInfoConfigProperties;
-import org.jfrog.build.client.ArtifactoryClientConfiguration;
+import org.jfrog.build.extractor.clientConfiguration.ArtifactoryClientConfiguration;
 import org.jfrog.build.extractor.maven.BuildInfoRecorder;
 import org.jfrog.hudson.plugins.artifactory.action.ActionableHelper;
 import org.jfrog.hudson.plugins.artifactory.action.BuildInfoResultAction;

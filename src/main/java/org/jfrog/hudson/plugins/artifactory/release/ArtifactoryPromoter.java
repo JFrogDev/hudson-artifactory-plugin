@@ -10,7 +10,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.jfrog.build.api.builder.PromotionBuilder;
-import org.jfrog.build.client.ArtifactoryBuildInfoClient;
+import org.jfrog.build.extractor.clientConfiguration.client.ArtifactoryBuildInfoClient;
 import org.jfrog.hudson.plugins.artifactory.UserPluginInfo;
 import org.jfrog.hudson.plugins.artifactory.config.ArtifactoryServer;
 import org.jfrog.hudson.plugins.artifactory.config.Credentials;

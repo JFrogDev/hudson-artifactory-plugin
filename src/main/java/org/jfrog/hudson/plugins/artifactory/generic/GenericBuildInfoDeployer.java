@@ -25,7 +25,7 @@ import org.jfrog.build.api.BuildType;
 import org.jfrog.build.api.Dependency;
 import org.jfrog.build.api.builder.ModuleBuilder;
 import org.jfrog.build.api.dependency.BuildDependency;
-import org.jfrog.build.client.ArtifactoryBuildInfoClient;
+import org.jfrog.build.extractor.clientConfiguration.client.ArtifactoryBuildInfoClient;
 import org.jfrog.hudson.plugins.artifactory.AbstractBuildInfoDeployer;
 import org.jfrog.hudson.plugins.artifactory.util.ExtractorUtils;
 

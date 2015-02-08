@@ -23,6 +23,8 @@ import hudson.model.Hudson;
 import org.apache.commons.lang.StringUtils;
 import org.jfrog.build.api.util.NullLog;
 import org.jfrog.build.client.*;
+import org.jfrog.build.extractor.clientConfiguration.client.ArtifactoryBuildInfoClient;
+import org.jfrog.build.extractor.clientConfiguration.client.ArtifactoryDependenciesClient;
 import org.jfrog.hudson.plugins.artifactory.UserPluginInfo;
 import org.jfrog.hudson.plugins.artifactory.util.HudsonBuildInfoLog;
 import org.kohsuke.stapler.DataBoundConstructor;
