@@ -20,14 +20,10 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.MapDifference;
 import com.google.common.collect.Maps;
 import com.google.common.io.Closeables;
+import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.Util;
-import hudson.model.AbstractBuild;
-import hudson.model.BuildListener;
-import hudson.model.Cause;
-import hudson.model.Computer;
-import hudson.model.Hudson;
-import hudson.model.Run;
+import hudson.model.*;
 import hudson.slaves.SlaveComputer;
 import hudson.tasks.LogRotator;
 import org.apache.commons.lang.StringUtils;
@@ -99,12 +95,18 @@ public class ExtractorUtils {
             BuildListener listener, PublisherContext publisherContext,
             ResolverContext resolverContext)
             throws IOException, InterruptedException {
+
+        EnvVars envVars = new EnvVars();
+        for (EnvironmentContributingAction a : Util.filter(build.getActions(), EnvironmentContributingAction.class)) {
+            a.buildEnvVars(build, envVars);
+        }
+        env.putAll(envVars);
+
         ArtifactoryClientConfiguration configuration = new ArtifactoryClientConfiguration(new NullLog());
 
         if (publisherContext != null) {
             setPublisherInfo(env, build, resolverContext, publisherContext, configuration);
         }
-
 
         if (resolverContext != null) {
             setResolverInfo(configuration, resolverContext);
