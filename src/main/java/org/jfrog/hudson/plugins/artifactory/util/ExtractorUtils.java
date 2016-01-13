@@ -40,10 +40,7 @@ import org.jfrog.hudson.plugins.artifactory.config.Credentials;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * @author Tomer Cohen
@@ -100,7 +97,11 @@ public class ExtractorUtils {
         for (EnvironmentContributingAction a : Util.filter(build.getActions(), EnvironmentContributingAction.class)) {
             a.buildEnvVars(build, envVars);
         }
-        env.putAll(envVars);
+        for (Map.Entry<String, String> entry : envVars.entrySet()) {
+            if (!env.containsKey(entry.getKey())) {
+                env.put(entry.getKey(), entry.getValue());
+            }
+        }
 
         ArtifactoryClientConfiguration configuration = new ArtifactoryClientConfiguration(new NullLog());
 
